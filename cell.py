@@ -23,6 +23,7 @@ class Cell:
             self.x * self.size, self.y * self.size
         ))
 
+
     def change(self, alive):
         self.alive = alive
 

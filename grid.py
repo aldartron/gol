@@ -22,3 +22,13 @@ class Grid:
         for row in self.grid:
             for cell in row:
                 cell.blitme()
+
+        cell_size = self.settings.cell_size
+        screen_height = self.settings.screen_height
+
+        # Отрисовка сетки грида
+        if self.settings.draw_grid:
+            for i in range(self.settings.grid_size + 1):
+                pygame.draw.line(self.screen, self.settings.grid_color, (0, i * cell_size), (screen_height, i * cell_size))
+                pygame.draw.line(self.screen, self.settings.grid_color, (i * cell_size, 0), (i * cell_size, screen_height))
+
