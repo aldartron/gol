@@ -2,6 +2,7 @@ import sys
 import pygame
 from settings import Settings
 from grid import Grid
+from control_panel import Panel
 import game_functions as gf
 
 
@@ -15,10 +16,11 @@ def run_game():
     pygame.display.set_caption("Conway's Game of Life")
 
     grid = Grid(settings.grid_size, screen, settings)
+    panel = Panel(screen, grid, settings)
 
     # Основной цикл
     while True:
-        gf.check_events(grid, settings)
-        gf.update_screen(settings, screen, grid)
+        gf.check_events(grid, settings, panel)
+        gf.update_screen(settings, screen, grid, panel)
 
 run_game()

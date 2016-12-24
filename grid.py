@@ -32,3 +32,19 @@ class Grid:
                 pygame.draw.line(self.screen, self.settings.grid_color, (0, i * cell_size), (screen_height, i * cell_size))
                 pygame.draw.line(self.screen, self.settings.grid_color, (i * cell_size, 0), (i * cell_size, screen_height))
 
+    def clear(self):
+        # Очистка грида
+        for row in self.grid:
+            for cell in row:
+                cell.alive = False
+
+    def inverse(self):
+        # Инверсия грида
+        for row in self.grid:
+            for cell in row:
+                cell.alive = not cell.alive
+
+    def start(self):
+        # Запуск
+        pass
+
