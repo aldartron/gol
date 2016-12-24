@@ -6,14 +6,14 @@ def check_events(grid, settings):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-        elif pygame.mouse.get_pressed()[0]:
-            click_on_cell(grid, settings, True)
-        elif pygame.mouse.get_pressed()[2]:
-            click_on_cell(grid, settings, False)
-        elif event.type == pygame.MOUSEBUTTONUP:
-            grid.release()
-        elif pygame.mouse.get_rel():
-            focus_on_cell(grid, settings)
+        elif pygame.mouse.get_pos()[0] < 600:
+            # Если курсор в пределах грида
+            if pygame.mouse.get_pressed()[0]:
+                click_on_cell(grid, settings, True)
+            elif pygame.mouse.get_pressed()[2]:
+                click_on_cell(grid, settings, False)
+            elif pygame.mouse.get_rel():
+                focus_on_cell(grid, settings)
 
 
 def update_screen(settings, screen, grid):
