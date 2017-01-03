@@ -84,8 +84,8 @@ class Grid:
         result = 0
 
         for t in coord_deltas:
-            x = cell.x + t[0]
-            y = cell.y + t[1]
+            x = list(range(self.settings.grid_size))[(cell.x + t[0]) % self.settings.grid_size]
+            y = list(range(self.settings.grid_size))[(cell.y + t[1]) % self.settings.grid_size]
             neighbors.append((x,y))
 
         for coords in neighbors:
