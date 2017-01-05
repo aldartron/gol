@@ -13,10 +13,21 @@ class Grid:
         self.size = size
         self.epoch = 0
         self.cols = []
+        self.neighbors_grid = []
 
         # Заполнение грида
         for y in range(self.size):
             self.cols.append([False for x in range(self.size)])
+            self.neighbors_grid.append([[] for x in range(self.size)])
+
+        # Заполнение таблицы соседей
+        for col in range(self.size):
+            for row in range(self.size):
+                for t in coord_deltas:
+                    x = list(range(self.size))[(col + t[0]) % self.size]
+                    y = list(range(self.size))[(row + t[1]) % self.size]
+                    self.neighbors_grid[col][row].append((x,y))
+
 
     def vizualize(self):
         cell_size = self.settings.cell_size
@@ -60,14 +71,9 @@ class Grid:
         neighbors = []
         result = 0
 
-        for t in coord_deltas:
-            x = list(range(self.size))[(col + t[0]) % self.size]
-            y = list(range(self.size))[(row + t[1]) % self.size]
-            for xx in range(self.size):
-                for yy in range(self.size):
-                    if xx == x and yy == y:
-                        if self.cols[xx][yy]:
-                            result += 1
+        for neighbor in self.neighbors_grid[col][row]:
+            if self.cols[neighbor[0]][neighbor[1]]:
+                result += 1
 
         return result
 
