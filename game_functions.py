@@ -1,6 +1,10 @@
 import sys
 import pygame
 
+coord_deltas = [(-1,-1),(0,-1),(1,-1),
+                (-1, 0),       (1, 0),
+                (-1, 1),(0, 1),(1, 1)]
+
 
 def check_events(grid, settings, panel):
     for event in pygame.event.get():
@@ -21,7 +25,7 @@ def check_events(grid, settings, panel):
 def update_screen(settings, screen, grid, panel):
     screen.fill(settings.bg_color)
     grid.vizualize()
-    grid.do_live()
+    # grid.do_live()
     panel.blitme()
     pygame.display.flip()
 

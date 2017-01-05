@@ -1,6 +1,7 @@
 import pygame
 import time
 import threading
+from game_functions import coord_deltas
 
 
 class Grid:
@@ -40,6 +41,7 @@ class Grid:
     def start(self):
         # Запуск
         self.live = True
+        self.do_live()
 
     def clear(self):
         # Очистка грида
@@ -55,22 +57,16 @@ class Grid:
 
     def count(self, col, row):
         # Подсчет количества живых соседей у клетки
-        coord_deltas = [(-1,-1),(0,-1),(1,-1),
-                        (-1, 0),       (1, 0),
-                        (-1, 1),(0, 1),(1, 1)]
         neighbors = []
         result = 0
 
         for t in coord_deltas:
             x = list(range(self.size))[(col + t[0]) % self.size]
             y = list(range(self.size))[(row + t[1]) % self.size]
-            neighbors.append((x,y))
-
-        for coords in neighbors:
-            for x in range(self.size):
-                for y in range(self.size):
-                    if x == coords[0] and y == coords[1]:
-                        if self.cols[x][y]:
+            for xx in range(self.size):
+                for yy in range(self.size):
+                    if xx == x and yy == y:
+                        if self.cols[xx][yy]:
                             result += 1
 
         return result
