@@ -9,7 +9,7 @@ class Settings:
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
         self.font = pygame.font.SysFont('Monospace', 22, 1)
-        self.grid_size = 20
+        self.grid_size = 50
         self.grid_color = (163, 163, 163)
         self.draw_grid = True
         self.cell_size = (self.screen_height // self.grid_size)

@@ -21,22 +21,16 @@ def check_events(grid, settings, panel):
 def update_screen(settings, screen, grid, panel):
     screen.fill(settings.bg_color)
     grid.vizualize()
+    grid.do_live()
     panel.blitme()
     pygame.display.flip()
 
 
 def click_on_cell(grid, settings, alive):
-    cell = get_cell(grid, settings)
-    cell.change(alive)
-
-
-def get_cell(grid, settings):
-    # Определяет ячейку, над которой находится курсор
     pos = pygame.mouse.get_pos()
-    if pos[0] < 600:
-        y = pos[0] // settings.cell_size
-        x = pos[1] // settings.cell_size
-        return grid.grid[x][y]
+    y = pos[0] // settings.cell_size
+    x = pos[1] // settings.cell_size
+    grid.change_cell(x, y, alive)
 
 
 # Функции кнопок
