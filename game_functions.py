@@ -41,13 +41,20 @@ def start(grid):
     grid.start()
 
 
-def stop(grid):
-    pass
-
-
 def clear(grid):
     grid.clear()
 
 
 def exit(grid):
     sys.exit()
+
+
+def step(grid):
+    grid.do_epoch()
+
+def faster(grid):
+    pass
+
+
+def slower(grid):
+    pass

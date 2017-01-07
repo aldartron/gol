@@ -66,7 +66,7 @@ class Button:
             border_color = self.settings.border_color
         pygame.draw.rect(self.surface, border_color, self.surface.get_rect(), border_width)
         # Отрисовка надписи
-        label = self.settings.font.render(self.caption, 1, (85,85,85))
+        label = self.settings.font.render(self.caption, 1, self.settings.font_color)
         labelx = self.surface.get_rect().centerx - label.get_rect().width // 2
         labely = self.surface.get_rect().centery - label.get_rect().height // 2
         self.surface.blit(label, (labelx, labely))
@@ -79,12 +79,16 @@ class Button:
         elif self.caption == 'PAUSE':
             gf.start(grid)
             self.caption = 'START'
-        elif self.caption == 'STOP':
-            gf.stop(grid)
         elif self.caption == 'CLEAR':
             gf.clear(grid)
         elif self.caption == 'EXIT':
             gf.exit(grid)
-        elif self.caption == 'INVERSE':
-            gf.inverse(grid)
+        elif self.caption == 'Step':
+            gf.step(grid)
+        elif self.caption == 'RANDOM':
+            gf.random(grid)
+        elif self.caption == 'Faster':
+            gf.faster(grid)
+        elif self.caption == 'Slower':
+            gf.lower(grid)
 

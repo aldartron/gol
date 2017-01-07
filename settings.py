@@ -21,3 +21,4 @@ class Settings:
         self.border_color = (80, 80, 80)
         self.border_in_focus_color = (180, 80, 80)
         self.border_active_color = (0, 120, 0)
+        self.font_color = (42, 42, 42)
