@@ -51,12 +51,20 @@ class Button:
 
     def blitme(self):
         self.area = self.screen.blit(self.surface, (self.settings.screen_height + 20, 20 + 10 * self.index + 45 * self.index))
+        # Очистка поверхности
+        self.surface.fill(self.settings.button_color)
         # Отрисовка рамки
+        border_width = 3
         if self.in_focus:
             border_color = self.settings.border_in_focus_color
+            if self.caption == 'PAUSE':
+                border_width = 7
+        elif self.caption == 'PAUSE':
+            border_color = self.settings.border_active_color
+            border_width = 7
         else:
             border_color = self.settings.border_color
-        pygame.draw.rect(self.surface, border_color, self.surface.get_rect(), 3)
+        pygame.draw.rect(self.surface, border_color, self.surface.get_rect(), border_width)
         # Отрисовка надписи
         label = self.settings.font.render(self.caption, 1, (85,85,85))
         labelx = self.surface.get_rect().centerx - label.get_rect().width // 2
@@ -67,6 +75,10 @@ class Button:
         # Вызов игровых функций для соответствующей кнопки
         if self.caption == 'START':
             gf.start(grid)
+            self.caption = 'PAUSE'
+        elif self.caption == 'PAUSE':
+            gf.start(grid)
+            self.caption = 'START'
         elif self.caption == 'STOP':
             gf.stop(grid)
         elif self.caption == 'CLEAR':

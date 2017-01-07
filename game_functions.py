@@ -25,7 +25,6 @@ def check_events(grid, settings, panel):
 def update_screen(settings, screen, grid, panel):
     screen.fill(settings.bg_color)
     grid.vizualize()
-    # grid.do_live()
     panel.blitme()
     pygame.display.flip()
 

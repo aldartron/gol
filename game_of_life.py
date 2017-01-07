@@ -4,6 +4,7 @@ from settings import Settings
 from grid import Grid
 from control_panel import Panel
 import game_functions as gf
+import threading
 
 
 def run_game():
@@ -22,5 +23,6 @@ def run_game():
     while True:
         gf.check_events(grid, settings, panel)
         gf.update_screen(settings, screen, grid, panel)
+        grid.do_live()
 
 run_game()

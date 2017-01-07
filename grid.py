@@ -51,8 +51,7 @@ class Grid:
 
     def start(self):
         # Запуск
-        self.live = True
-        self.do_live()
+        self.live = not self.live
 
     def clear(self):
         # Очистка грида
@@ -101,3 +100,4 @@ class Grid:
         # Последовательное выполнение эпох
         if self.live:
             self.do_epoch()
+            time.sleep(0.1)
