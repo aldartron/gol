@@ -59,12 +59,6 @@ class Grid:
             for y in range(self.size):
                 self.cols[x][y] = False
 
-    def inverse(self):
-        # Инверсия грида
-        for x in range(self.size):
-            for y in range(self.size):
-                self.cols[x][y] = not self.cols[x][y]
-
     def count(self, col, row):
         # Подсчет количества живых соседей у клетки
         neighbors = []

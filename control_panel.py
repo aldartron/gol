@@ -12,11 +12,11 @@ class Panel:
         self.surface = Surface((settings.screen_width - settings.screen_height, settings.screen_height))
         self.grid = grid
         self.content.append(Button(screen, grid, settings, 'START', 0))
-        self.content.append(Button(screen, grid, settings, 'Faster', 2))
-        self.content.append(Button(screen, grid, settings, 'Slower', 3))
-        self.content.append(Button(screen, grid, settings, 'CLEAR', 5))
-        self.content.append(Button(screen, grid, settings, 'RANDOM', 6))
-        self.content.append(Button(screen, grid, settings, 'INVERSE', 7))
+        self.content.append(Button(screen, grid, settings, 'Step' , 1))
+        self.content.append(Button(screen, grid, settings, 'Faster', 3))
+        self.content.append(Button(screen, grid, settings, 'Slower', 4))
+        self.content.append(Button(screen, grid, settings, 'CLEAR', 6))
+        self.content.append(Button(screen, grid, settings, 'RANDOM', 7))
         self.content.append(Button(screen, grid, settings, 'EXIT', 9))
 
     def blitme(self):

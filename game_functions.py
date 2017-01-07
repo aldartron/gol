@@ -51,7 +51,3 @@ def clear(grid):
 
 def exit(grid):
     sys.exit()
-
-
-def inverse(grid):
-    grid.inverse()
