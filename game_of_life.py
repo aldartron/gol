@@ -1,10 +1,8 @@
-import sys
 import pygame
 from settings import Settings
 from grid import Grid
 from control_panel import Panel
 import game_functions as gf
-import threading
 
 
 def run_game():

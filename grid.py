@@ -14,6 +14,7 @@ class Grid:
         self.epoch = 0
         self.cols = []
         self.neighbors_grid = []
+        self.show_grid = True
 
         # Заполнение грида
         for y in range(self.size):
@@ -28,7 +29,6 @@ class Grid:
                     y = list(range(self.size))[(row + t[1]) % self.size]
                     self.neighbors_grid[col][row].append((x,y))
 
-
     def vizualize(self):
         cell_size = self.settings.cell_size
         screen_height = self.settings.screen_height
@@ -41,10 +41,11 @@ class Grid:
                                      ((y * cell_size, x * cell_size), (cell_size, cell_size)))
 
         # Отрисовка сетки грида
-        if self.settings.draw_grid:
-            for i in range(self.size + 1):
-                pygame.draw.line(self.screen, self.settings.grid_color, (0, i * cell_size), (screen_height, i * cell_size))
-                pygame.draw.line(self.screen, self.settings.grid_color, (i * cell_size, 0), (i * cell_size, screen_height))
+        if self.show_grid:
+            if self.settings.draw_grid:
+                for i in range(self.size + 1):
+                    pygame.draw.line(self.screen, self.settings.grid_color, (0, i * cell_size), (screen_height, i * cell_size))
+                    pygame.draw.line(self.screen, self.settings.grid_color, (i * cell_size, 0), (i * cell_size, screen_height))
 
     def change_cell(self, x, y, alive):
         self.cols[x][y] = alive
