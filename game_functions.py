@@ -53,13 +53,9 @@ def step(grid):
     grid.do_epoch()
 
 
-def faster(grid):
-    pass
-
-
-def slower(grid):
-    pass
-
-
 def change_grid(grid):
     grid.show_grid = not grid.show_grid
+
+
+def random(grid):
+    grid.random()

@@ -1,6 +1,6 @@
 import pygame
 import time
-import threading
+import random
 from game_functions import coord_deltas
 
 
@@ -96,3 +96,12 @@ class Grid:
         if self.live:
             self.do_epoch()
             time.sleep(0.1)
+
+    def random(self):
+        # Случайная комбинация ячеек
+        self.clear()
+        for x in range(self.size):
+            for y in range(self.size):
+                n = round(random.random() * 4);
+                if n < 2:
+                    self.cols[x][y] = True

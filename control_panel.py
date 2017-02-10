@@ -12,11 +12,10 @@ class Panel:
         self.surface = Surface((settings.screen_width - settings.screen_height, settings.screen_height))
         self.grid = grid
         self.content.append(Button(screen, grid, settings, 'START', 0))
-        self.content.append(Button(screen, grid, settings, 'Step' , 1))
-        self.content.append(Button(screen, grid, settings, 'Faster', 3))
-        self.content.append(Button(screen, grid, settings, 'Slower', 4))
-        self.content.append(Button(screen, grid, settings, 'CLEAR', 6))
-        self.content.append(Button(screen, grid, settings, 'Grid?', 7))
+        self.content.append(Button(screen, grid, settings, 'Do Step' , 1))
+        self.content.append(Button(screen, grid, settings, 'RANDOM', 3))
+        self.content.append(Button(screen, grid, settings, 'CLEAR', 4))
+        self.content.append(Button(screen, grid, settings, 'Grid?', 6))
         self.content.append(Button(screen, grid, settings, 'EXIT', 9))
 
     def blitme(self):
@@ -83,12 +82,10 @@ class Button:
             gf.clear(grid)
         elif self.caption == 'EXIT':
             gf.exit(grid)
-        elif self.caption == 'Step':
+        elif self.caption == 'Do Step':
             gf.step(grid)
         elif self.caption == 'Grid?':
             gf.change_grid(grid)
-        elif self.caption == 'Faster':
-            gf.faster(grid)
-        elif self.caption == 'Slower':
-            gf.slower(grid)
+        elif self.caption == 'RANDOM':
+            gf.random(grid)
 
