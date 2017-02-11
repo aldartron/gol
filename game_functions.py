@@ -1,5 +1,6 @@
 import sys
 import pygame
+import threading
 
 coord_deltas = [(-1,-1),(0,-1),(1,-1),
                 (-1, 0),       (1, 0),

@@ -23,4 +23,6 @@ def run_game():
         gf.update_screen(settings, screen, grid, panel)
         grid.do_live()
 
+
 run_game()
+

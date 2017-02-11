@@ -92,6 +92,9 @@ class Grid:
         for live in must_live:
             self.cols[live[0]][live[1]] = True
 
+        # Пауза для снижения скорости
+        time.sleep(0.1)
+
     def do_live(self):
         # Последовательное выполнение эпох
         if self.live:
