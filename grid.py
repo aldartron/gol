@@ -94,5 +94,6 @@ class Grid:
     def do_live(self):
         # Последовательное выполнение эпох
         if self.live:
-            self.do_epoch()
-            time.sleep(0.1)
+            t = threading.Thread(target=self.do_epoch())
+            t.start()
+            t.join()

@@ -15,6 +15,7 @@ class Panel:
         self.content.append(Button(screen, grid, settings, 'Step' , 1))
         self.content.append(Button(screen, grid, settings, 'Faster', 3))
         self.content.append(Button(screen, grid, settings, 'Slower', 4))
+        self.content.append(Button(screen, grid, settings, 'RANDOM', 5))
         self.content.append(Button(screen, grid, settings, 'CLEAR', 6))
         self.content.append(Button(screen, grid, settings, 'Grid?', 7))
         self.content.append(Button(screen, grid, settings, 'EXIT', 9))
@@ -91,4 +92,6 @@ class Button:
             gf.faster(grid)
         elif self.caption == 'Slower':
             gf.slower(grid)
+        elif self.caption == 'RANDOM':
+            gf.random(grid)
 
