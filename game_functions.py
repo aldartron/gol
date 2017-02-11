@@ -61,5 +61,9 @@ def slower(grid):
     pass
 
 
+def random(grid):
+    grid.random()
+
+
 def change_grid(grid):
     grid.show_grid = not grid.show_grid

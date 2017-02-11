@@ -1,6 +1,7 @@
 import pygame
 import time
 import threading
+import random
 from game_functions import coord_deltas
 
 
@@ -97,3 +98,11 @@ class Grid:
             t = threading.Thread(target=self.do_epoch())
             t.start()
             t.join()
+
+    def random(self):
+        self.clear()
+        for x in range(self.size):
+            for y in range(self.size):
+                n = round(random.random() * 5)
+                if n < 2:
+                    self.cols[x][y] = True
